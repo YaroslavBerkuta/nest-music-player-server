@@ -4,6 +4,7 @@ import {MongooseModule} from "@nestjs/mongoose";
 import {FileModule} from "./file/file.module";
 import * as path from 'path'
 import {ServeStaticModule} from "@nestjs/serve-static";
+import { AppController } from './app.controller';
 
 @Module({
     imports: [
@@ -11,6 +12,7 @@ import {ServeStaticModule} from "@nestjs/serve-static";
         MongooseModule.forRoot('mongodb+srv://admin:admin@cluster0.arghps5.mongodb.net/?retryWrites=true&w=majority'),
         TrackModule,
         FileModule
-    ]
+    ],
+    controllers: [AppController]
 })
 export class AppModule {}
